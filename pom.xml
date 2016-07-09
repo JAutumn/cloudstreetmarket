@@ -6,7 +6,11 @@
     <groupId>edu.zipcloud</groupId>
     <artifactId>cloudstreetmarket</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${zipcloud.version}</version>
+    
+    <properties>
+        <zipcloud.version>0.0.1-SNAPSHOT</zipcloud.version>
+    </properties>
     
     <modules>
         <module>cloudstreetmarket-parent</module>

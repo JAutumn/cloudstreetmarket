@@ -5,7 +5,7 @@
     <parent>
         <artifactId>zipcloud-parent</artifactId>
         <groupId>edu.zipcloud</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${zipcloud.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>

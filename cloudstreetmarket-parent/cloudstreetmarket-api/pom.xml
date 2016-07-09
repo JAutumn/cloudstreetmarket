@@ -5,10 +5,30 @@
     <parent>
         <artifactId>cloudstreetmarket-parent</artifactId>
         <groupId>edu.zipcloud</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${zipcloud.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cloudstreetmarket-api</artifactId>
     <packaging>war</packaging>
 
+    <build>
+        <finalName>api</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                    <webResources>
+                        <resource>
+                            <!-- this is relative to the pom.xml directory -->
+                            <directory>src/main/webapp/WEB-INF</directory>
+                            <targetPath>WEB-INF</targetPath>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

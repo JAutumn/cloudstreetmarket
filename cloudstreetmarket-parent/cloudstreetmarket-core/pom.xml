@@ -5,9 +5,28 @@
     <parent>
         <artifactId>cloudstreetmarket-parent</artifactId>
         <groupId>edu.zipcloud</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${zipcloud.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cloudstreetmarket-core</artifactId>
     <packaging>jar</packaging>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+        </dependency>
+    </dependencies>
 </project>

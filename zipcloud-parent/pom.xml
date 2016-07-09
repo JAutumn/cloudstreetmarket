@@ -5,7 +5,7 @@
     <parent>
         <artifactId>cloudstreetmarket</artifactId>
         <groupId>edu.zipcloud</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${zipcloud.version}</version>
     </parent>
     <modules>
         <module>zipcloud-core</module>
