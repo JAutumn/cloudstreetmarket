@@ -27,6 +27,17 @@ public class UserActivityDTO {
         this.date = Date.from(date.toInstant(ZoneOffset.UTC));
     }
 
+    public UserActivityDTO(String userName, String urlProfilePicture, Action userAction,
+                           String valueShortId, int amount, BigDecimal price, Date date) {
+        this.userName = userName;
+        this.urlProfilePicture = urlProfilePicture;
+        this.userAction = userAction;
+        this.valueShortId = valueShortId;
+        this.amount = amount;
+        this.price = price;
+        this.date = date;
+    }
+
     public String getUserName() {
         return userName;
     }

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.math.BigDecimal;
 
+import edu.zipcloud.cloudstreetmarket.core.dtos.IndexOverviewDTO;
 import org.springframework.stereotype.Service;
 
 import edu.zipcloud.cloudstreetmarket.core.dtos.MarketOverviewDTO;
@@ -20,7 +21,7 @@ public class DummyMarketServiceImpl implements IMarketService {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
     @Override
-    public DailyMarketActivityDTO getLastDayMarketActivity(String string) {
+    public DailyMarketActivityDTO getLastDayIndexActivity(String string) {
         Map<String, BigDecimal> map = new LinkedHashMap<>();
         map.put("08:00", new BigDecimal(9523));
         map.put("08:30", new BigDecimal(9556));
@@ -47,14 +48,14 @@ public class DummyMarketServiceImpl implements IMarketService {
     }
 
     @Override
-    public List<MarketOverviewDTO> getLastDayMarketsOverview() {
-        List<MarketOverviewDTO> result = Arrays.asList(
-                new MarketOverviewDTO("Dow Jones-IA", "DJI", new BigDecimal(17634.74), new BigDecimal(0.1805)),
-                new MarketOverviewDTO("S&P 500", "SP500", new BigDecimal(2039.82), new BigDecimal(0.0049)),
-                new MarketOverviewDTO("FTSE MIB", "FTSMIB", new BigDecimal(18965.41), new BigDecimal(-1.8286)),
-                new MarketOverviewDTO("DAX30", "DAX30", new BigDecimal(9252.94), new BigDecimal(0.0443)),
-                new MarketOverviewDTO("Eurostoxx 50", "ES50", new BigDecimal(3059.99), new BigDecimal(-0.0319)),
-                new MarketOverviewDTO("CAC 40", "FCHI", new BigDecimal(4202.46), new BigDecimal(-0.1451))
+    public List<IndexOverviewDTO> getLastDayIndexOverview(String market) {
+        List<IndexOverviewDTO> result = Arrays.asList(
+                new IndexOverviewDTO("Dow Jones-IA", "DJI", new BigDecimal(17634.74), new BigDecimal(0.1805)),
+                new IndexOverviewDTO("S&P 500", "SP500", new BigDecimal(2039.82), new BigDecimal(0.0049)),
+                new IndexOverviewDTO("FTSE MIB", "FTSMIB", new BigDecimal(18965.41), new BigDecimal(-1.8286)),
+                new IndexOverviewDTO("DAX30", "DAX30", new BigDecimal(9252.94), new BigDecimal(0.0443)),
+                new IndexOverviewDTO("Eurostoxx 50", "ES50", new BigDecimal(3059.99), new BigDecimal(-0.0319)),
+                new IndexOverviewDTO("CAC 40", "FCHI", new BigDecimal(4202.46), new BigDecimal(-0.1451))
         );
         return result;
     }

@@ -2,19 +2,12 @@ package edu.zipcloud.cloudstreetmarket.core.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import edu.zipcloud.cloudstreetmarket.core.enums.Action;
 
 @Entity
+@Table(name="transaction")
 public class Transaction implements Serializable {
     private static final long serialVersionUID = -6206553357043559298L;
 
