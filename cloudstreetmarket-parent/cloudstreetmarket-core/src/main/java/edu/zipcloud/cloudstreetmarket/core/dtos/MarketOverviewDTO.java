@@ -3,7 +3,6 @@ package edu.zipcloud.cloudstreetmarket.core.dtos;
 import java.math.BigDecimal;
 
 public class MarketOverviewDTO {
-
     private String marketShortName;
     private String marketId;
     private BigDecimal latestValue;

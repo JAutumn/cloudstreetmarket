@@ -8,7 +8,6 @@ import java.util.Date;
 import edu.zipcloud.cloudstreetmarket.core.enums.Action;
 
 public class UserActivityDTO {
-
     private String userName;
     private String urlProfilePicture;
     private Action userAction;
@@ -16,17 +15,6 @@ public class UserActivityDTO {
     private int amount;
     private BigDecimal price;
     private Date date;
-
-    public UserActivityDTO(String userName, String urlProfilePicture, Action userAction,
-                           String valueShortId, int amount, BigDecimal price, Date date) {
-        this.userName = userName;
-        this.urlProfilePicture = urlProfilePicture;
-        this.userAction = userAction;
-        this.valueShortId = valueShortId;
-        this.amount = amount;
-        this.price = price;
-        this.date = date;
-    }
 
     public UserActivityDTO(String userName, String urlProfilePicture, Action userAction,
                            String valueShortId, int amount, BigDecimal price, LocalDateTime date) {

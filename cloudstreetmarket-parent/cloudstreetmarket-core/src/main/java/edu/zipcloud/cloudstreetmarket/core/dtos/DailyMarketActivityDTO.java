@@ -6,11 +6,10 @@ import java.util.Date;
 import java.util.Map;
 
 public class DailyMarketActivityDTO {
-
-    String marketShortName;
-    String marketId;
-    Map<String, BigDecimal> values;
-    Date dateSnapshot;
+    private String marketShortName;
+    private String marketId;
+    private Map<String, BigDecimal> values;
+    private Date dateSnapshot;
 
     public DailyMarketActivityDTO(String marketShortName, String marketId, Map<String, BigDecimal> values, Date dateSnapshot) {
         this.marketShortName = marketShortName;

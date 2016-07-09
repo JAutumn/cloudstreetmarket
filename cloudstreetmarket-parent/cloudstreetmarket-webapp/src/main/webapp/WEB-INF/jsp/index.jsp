@@ -179,8 +179,7 @@
                                 market = {};
                                 market.marketShortName = '${market.marketShortName}';
                                 market.latestValue = (${market.latestValue}).toFixed(2);
-                                market.latestChange = (${market.latestChange} * 100
-                                ).toFixed(2);
+                                market.latestChange = (${market.latestChange} * 100).toFixed(2);
                                 dailyMarketsActivity.push(market);
                             </script>
                         </c:forEach>

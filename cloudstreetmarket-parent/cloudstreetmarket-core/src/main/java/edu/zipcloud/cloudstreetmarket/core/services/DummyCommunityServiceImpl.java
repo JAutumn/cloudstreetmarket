@@ -13,7 +13,6 @@ import edu.zipcloud.cloudstreetmarket.core.enums.Action;
 
 @Service
 public class DummyCommunityServiceImpl implements ICommunityService {
-
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
     @Override
