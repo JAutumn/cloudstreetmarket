@@ -4,6 +4,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 import java.util.Date;
 
+import com.wordnik.swagger.annotations.Api;
 import edu.zipcloud.cloudstreetmarket.core.index.dto.IndexOverviewDTO;
 import edu.zipcloud.cloudstreetmarket.core.market.dto.HistoProductDTO;
 import edu.zipcloud.cloudstreetmarket.core.market.entity.MarketCode;
@@ -25,7 +26,7 @@ import com.mangofactory.swagger.annotations.ApiIgnore;;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
-
+@Api(value = "indices", description = "Financial indices") // Swagger annotation
 @RestController
 @RequestMapping(value = "/indices", produces = {"application/xml", "application/json"})
 public class IndexController extends CloudstreetApiWCI {
@@ -38,26 +39,29 @@ public class IndexController extends CloudstreetApiWCI {
     private IMarketService marketService;
 
     @RequestMapping(method = GET)
-    public Page<IndexOverviewDTO> getIndices(
-            @ApiIgnore @PageableDefault(size = 10, page = 0, sort = {"dailyLatestValue"},
-                                        direction = Direction.DESC) Pageable pageable) {
+    @ApiOperation(value = "Get overviews of indices", notes = "Return a page of index-overviews")
+    public Page<IndexOverviewDTO> getIndices(@ApiIgnore
+                                             @PageableDefault(size = 10, page = 0, sort = {"dailyLatestValue"}, 
+                                                              direction = Direction.DESC) Pageable pageable) {
         return marketService.getLastDayIndicesOverview(pageable);
     }
 
     @RequestMapping(value = "/{market}", method = GET)
-    public Page<IndexOverviewDTO> getIndicesPerMarket(
-            @PathVariable MarketCode market,
-            @ApiIgnore @PageableDefault(size = 10, page = 0, sort = {"dailyLatestValue"},
-                                        direction = Direction.DESC) Pageable pageable) {
+    @ApiOperation(value = "Get overviews of indices filtered by market", notes = "Return a page of index-overviews")
+    public Page<IndexOverviewDTO> getIndicesPerMarket(@PathVariable MarketCode market,
+                                                      @ApiIgnore 
+                                                      @PageableDefault(size = 10, page = 0, sort = {"dailyLatestValue"}, 
+                                                                       direction = Direction.DESC) Pageable pageable) {
         return marketService.getLastDayIndicesOverview(market, pageable);
     }
 
-    @RequestMapping(value = "/{market}/{index}", method = GET)
-    public HistoProductDTO getHistoIndex(@PathVariable("market") MarketCode market, 
-                                         @PathVariable("index") String indexCode, 
-                                         @RequestParam(value = "fd", defaultValue = "") Date fromDate, 
-                                         @RequestParam(value = "td", defaultValue = "") Date toDate, 
-                                         @RequestParam(value = "i", defaultValue = "MINUTE_30") QuotesInterval interval) {
+    @ApiOperation(value = "Get historical-data for one index", notes = "Return a set of historical-data from one index")
+    @RequestMapping(value = "/{market}/{index}/histo", method = GET)
+    public HistoProductDTO getHistoIndex(@ApiParam(value="Market Code: EUROPE") @PathVariable("market") MarketCode market,
+                                         @ApiParam(value="Index code: ^OEX") @PathVariable("index") String indexCode,
+                                         @ApiParam(value="Start date: 2014-01-01") @RequestParam(value = "fd", defaultValue = "") Date fromDate,
+                                         @ApiParam(value="End date: 2020-12-12") @RequestParam(value = "td", defaultValue = "") Date toDate,
+                                         @ApiParam(value="Period between snapshots") @RequestParam(value = "i", defaultValue = "MINUTE_30") QuotesInterval interval) {
         return marketService.getHistoIndex(indexCode, market, fromDate, toDate, interval);
     }
 }
