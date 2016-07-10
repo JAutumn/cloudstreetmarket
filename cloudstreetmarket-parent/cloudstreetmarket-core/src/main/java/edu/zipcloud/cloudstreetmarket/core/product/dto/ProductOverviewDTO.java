@@ -1,27 +1,28 @@
-package edu.zipcloud.cloudstreetmarket.core.index.dto;
+package edu.zipcloud.cloudstreetmarket.core.product.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import edu.zipcloud.cloudstreetmarket.core.index.entity.Index;
+import edu.zipcloud.cloudstreetmarket.core.product.entity.Product;
 
-@XStreamAlias("index")
-public class IndexOverviewDTO implements Serializable {
-
+@XStreamAlias("product")
+public class ProductOverviewDTO implements Serializable {
     private static final long serialVersionUID = 1L;
+    private String code = null;
+    private String name = null;
+    private String market = null;
+    private String currency = null;
+    private BigDecimal latestValue = null;
+    private BigDecimal latestChange = null;
+    private BigDecimal latestChangePercent = null;
+    private BigDecimal prevClose = null;
+    private BigDecimal high = null;
+    private BigDecimal low = null;
 
-    private String code;
-    private String name;
-    private String market;
-    private BigDecimal latestValue;
-    private BigDecimal latestChange;
-    private BigDecimal latestChangePercent;
-    private BigDecimal prevClose;
-    private BigDecimal high;
-    private BigDecimal low;
+    public ProductOverviewDTO() {}
 
-    public IndexOverviewDTO(String name, String code, String market, BigDecimal latestValue, BigDecimal latestChange, BigDecimal latestChangePercent, BigDecimal prevClose, BigDecimal high, BigDecimal low){
+    public ProductOverviewDTO(String name, String code, String market, String currency, BigDecimal latestValue, BigDecimal latestChange, BigDecimal latestChangePercent, BigDecimal prevClose, BigDecimal high, BigDecimal low) {
         this.name = name;
         this.code = code;
         this.market = market;
@@ -31,6 +32,7 @@ public class IndexOverviewDTO implements Serializable {
         this.prevClose = prevClose;
         this.high = high;
         this.low = low;
+        this.currency = currency;
     }
 
     public String getCode() {
@@ -105,18 +107,25 @@ public class IndexOverviewDTO implements Serializable {
         this.low = low;
     }
 
-    public static IndexOverviewDTO build(Index index){
-        return new IndexOverviewDTO(
-                index.getName(),
-                index.getCode(),
-                index.getMarket().getCode().name(),
-                index.getDailyLatestValue(),
-                index.getDailyLatestChange(),
-                index.getDailyLatestChangePercent(),
-                index.getPreviousClose(),
-                index.getHigh(),
-                index.getLow()
-        );
+    public String getCurrency() {
+        return currency;
     }
 
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public static ProductOverviewDTO build(Product product) {
+        return new ProductOverviewDTO(
+                product.getName(),
+                product.getCode(),
+                (product.getMarket() != null) ? product.getMarket().getName() : null,
+                product.getCurrency(),
+                product.getDailyLatestValue(),
+                product.getDailyLatestChange(),
+                product.getDailyLatestChangePercent(),
+                product.getPreviousClose(),
+                product.getHigh(),
+                product.getLow());
+    }
 }

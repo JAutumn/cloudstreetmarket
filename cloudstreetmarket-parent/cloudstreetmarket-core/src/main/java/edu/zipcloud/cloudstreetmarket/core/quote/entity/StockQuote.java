@@ -1,7 +1,6 @@
 package edu.zipcloud.cloudstreetmarket.core.quote.entity;
 
 import edu.zipcloud.cloudstreetmarket.core.product.entity.StockProduct;
-import edu.zipcloud.cloudstreetmarket.core.quote.entity.Quote;
 
 import java.io.Serializable;
 
@@ -12,8 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "stock_quote")
-public class StockQuote extends Quote implements Serializable {
+@Table(name="stock_quote")
+public class StockQuote extends Quote implements Serializable{
     private static final long serialVersionUID = -8175317254623555447L;
 
     @ManyToOne(fetch = FetchType.EAGER)

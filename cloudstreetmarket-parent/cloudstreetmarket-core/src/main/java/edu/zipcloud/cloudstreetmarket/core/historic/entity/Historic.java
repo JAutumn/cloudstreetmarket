@@ -1,5 +1,6 @@
 package edu.zipcloud.cloudstreetmarket.core.historic.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -21,7 +22,7 @@ public abstract class Historic {
 
     private double low;
 
-    private double close;
+    private BigDecimal close;
 
     private double volume;
 
@@ -74,11 +75,11 @@ public abstract class Historic {
         this.low = low;
     }
 
-    public double getClose() {
+    public BigDecimal getClose() {
         return close;
     }
 
-    public void setClose(double close) {
+    public void setClose(BigDecimal close) {
         this.close = close;
     }
 

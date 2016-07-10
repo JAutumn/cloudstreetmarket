@@ -80,6 +80,14 @@
             <artifactId>commons-dbcp2</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+        </dependency>
 
         <!-- Tests -->
         <dependency>
