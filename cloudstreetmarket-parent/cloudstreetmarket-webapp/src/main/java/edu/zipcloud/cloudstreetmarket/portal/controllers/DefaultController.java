@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.zipcloud.cloudstreetmarket.core.services.ICommunityService;
-import edu.zipcloud.cloudstreetmarket.core.services.IMarketService;
+import edu.zipcloud.cloudstreetmarket.core.user.service.ICommunityService;
+import edu.zipcloud.cloudstreetmarket.core.market.service.IMarketService;
 
 @Controller
 public class DefaultController extends CloudstreetWebAppWCI {

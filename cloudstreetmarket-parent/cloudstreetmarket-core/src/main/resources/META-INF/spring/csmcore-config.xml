@@ -20,7 +20,7 @@
     <context:annotation-config/>
     <context:component-scan base-package="edu.zipcloud.cloudstreetmarket.core"/>
 
-    <jpa:repositories base-package="edu.zipcloud.cloudstreetmarket.core.daos"/>
+    <jpa:repositories base-package="edu.zipcloud.cloudstreetmarket.core"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName">
