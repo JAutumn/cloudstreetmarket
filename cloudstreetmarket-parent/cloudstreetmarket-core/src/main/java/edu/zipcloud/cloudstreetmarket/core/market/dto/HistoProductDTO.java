@@ -21,13 +21,10 @@ public class HistoProductDTO {
         this.productName = productName;
         this.code = code;
         this.mapValues = mapValues;
-        this.values = mapValues.entrySet().stream()
-                .map(entry -> {
-                    Map<String, BigDecimal> localMap = new HashMap<>();
-                    localMap.put(entry.getKey(), entry.getValue());
-                    return localMap;
-                })
-                .collect(Collectors.toCollection(LinkedHashSet::new));
+        this.values = mapValues.entrySet()
+                               .stream()
+                               .map(entry -> Collections.singletonMap(entry.getKey(), entry.getValue()))
+                               .collect(Collectors.toCollection(LinkedHashSet::new));
         this.fromDate = fromDate;
         this.toDate = toDate;
     }

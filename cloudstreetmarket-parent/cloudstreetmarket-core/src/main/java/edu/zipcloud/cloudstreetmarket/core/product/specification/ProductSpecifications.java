@@ -20,8 +20,7 @@ public class ProductSpecifications<T extends Product> {
             }
 
             @Override
-            public Predicate toPredicate(Root<T> root,
-                                         CriteriaQuery<?> query, CriteriaBuilder cb) {
+            public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 return cb.like(cb.lower(root.<String>get("name")), startWithPattern(searchTerm));
             }
         };
